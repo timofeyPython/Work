@@ -5,7 +5,7 @@ const person = {
     name:'Tima',
     age:25,
     sayHello: hello,
-    sayHelloWindow: hello.bind(window),
+    sayHelloWindow: hello.bind(document),
     logInfo: function(job,phone){
         console.group(`${this.name} info:`)
         console.log(`Name is ${this.name}`)
@@ -20,10 +20,10 @@ const lena = {
     age:23,
     name:'Elena'
 }
-
+ 
 //  person.logInfo.bind(lena,1,2)()
 //  person.logInfo.call(lena,1,2)
-// person.logInfo.apply(lena,['1','2'])
+person.logInfo.apply(lena,['1','2'])
 
 // ----------------
 
