@@ -11,7 +11,7 @@ const proxiedFetch = new Proxy(networkFetch,{
             return `${url} - Ответ из кэша`
         }else{
             cache.add(url)
-            return Reflect.apply(target, thisArg, args)
+            return Reflect.apply(target,thisArg,args)
         }
     }
 })
