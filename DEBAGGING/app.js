@@ -7,27 +7,38 @@ document.addEventListener('DOMContentLoaded',()=>{
     const output = document.querySelector('#output')
     
     function getInputValues(){
-        const value1 = num1.value
-        const value2 = num2.value
+        const value1 = +num1.value
+        const value2 = +num2.value
     
         return [value1,value2]
     }
     
     function addHandler(){
+        debugger
         const values = getInputValues()
-    
         const result = values [0] + values[1]
-        // 
-        output.innerHTML = `Результат = ${result}`
+        displayResult(result)
+   
+         
     }
     
     function subHandler(){
-    
+         
+        const value = getInputValues()
+        const result = value[0] - value[1]
+        displayResult(result)
+        
     }
     
+    function displayResult(result){
+        output.closest('.card').style.display ='block'
+        output.innerHTML = `Результат = ${result}`
+        console.trace()
+    } 
+
      
-    addBtn.addEventListener('click',addHandler())
-    subBtn.addEventListener('click',subHandler())
+    addBtn.addEventListener('click',addHandler)
+    subBtn.addEventListener('click',subHandler)
 
 })
  
