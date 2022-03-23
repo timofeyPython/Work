@@ -1,3 +1,6 @@
+const document = {
+    
+}
 hello = () =>{
     console.log('Hello',this)
 } 
