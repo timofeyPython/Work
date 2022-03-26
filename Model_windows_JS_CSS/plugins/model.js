@@ -2,14 +2,14 @@ function _createModel(options){
     const modal = document.createElement('div')
     modal.classList.add('vmodal')
     modal.insertAdjacentHTML('afterbegin',`
-        <div class="modal-overlay">
-            <div class="modal-window">
+        <div id = "modal_overlay" class="modal-overlay">
+            <div id='moda_window' class="modal-window">
                 <div class="modal-header"> 
-                        <span class="modal-title">Modal-title</span>
-                        <span class="modal-close">&times;</span>
+                        <span id = 'title_id' class="modal-title">Modal-title</span>
+                        <span id = 'modal_close' class="modal-close">&times;</span>
                         </div>
                         <div class="modal-body">
-                            <p1>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempora?</p1>
+                            <p1 id = 'lorem'>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempora?</p1>
                             <p1>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempora?</p1>
                         </div>       
                         <div class="modal-footer">
@@ -56,8 +56,46 @@ $.modal = function(options){
                 closing = false
              },ANIMATION_SPEED)
          },
-         destroy(){}
-        
-    }
-}
 
+        title(string){
+            let a = document.getElementById('title_id')
+            if (a !== undefined){
+                a.innerText = string
+            }
+         },
+        closable(options){
+            options ? $modal.classList.add('close_hide') : $modal.classList.add('close_open')
+        },
+        content(string){
+            let a = document.getElementById('lorem')
+            if (a !== undefined){
+                a.innerText = string
+            }
+        },
+        width(string){
+            let a = document.getElementById('moda_window').style.width=string+'px'
+            return a
+        },
+
+         destroy(){
+            let e = document.querySelectorAll('.vmodal')
+            let a =(elms)=>[...elms].forEach(el=>el.remove())
+            console.log('Див удалён')
+            return a(e)  
+         },
+        //  ----закрытие модалки на крестик
+        close_plus(){
+
+        },
+        close_energy(){
+            
+              }
+               
+          
+    }
+
+} 
+
+
+
+ 
