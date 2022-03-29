@@ -1,17 +1,17 @@
 function _createModel(options){
+    const DEFAULT_WIDTH = '600px'
     const modal = document.createElement('div')
     modal.classList.add('vmodal')
     modal.insertAdjacentHTML('afterbegin',`
-        <div id = "modal_overlay" class="modal-overlay">
-            <div id='moda_window' class="modal-window">
-                <div class="modal-header"> 
-                        <span id = 'title_id' class="modal-title">Modal-title</span>
-                        <span id = 'modal_close' class="modal-close">&times;</span>
+        <div class="modal-overlay" data-close   >
+            <div class="modal-window">
+                <div class="modal-header" style="width: ${options.width|| DEFAULT_WIDTH}"> 
+                        <span class="modal-title">${options.title || 'окно'}</span>
+                        ${options.closable ?`<span class="modal-close" data-close = true>&times;</span>` : ''}
                         </div>
-                        <div class="modal-body">
-                            <p1 id = 'lorem'>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempora?</p1>
-                            <p1>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, tempora?</p1>
-                        </div>       
+                        <div class="modal-body" data-content>
+                            ${options.content || ''}
+                            </div>
                         <div class="modal-footer">
                             <button>Okey</button>
                             <button>Cancel</button>
@@ -39,12 +39,31 @@ beforeClose:boolean
 --
 animate.css
 */
+ 
+ 
+// document.addEventListener('DOMContentLoaded', function() {
+//     const close = function() {
+//         this.closest('.vmodal').style.display = 'none';
+//     }
+//     let elements = document.querySelectorAll('.modal-close,.button_close,.vmodal' );
+     
+//     for (let e of elements) {
+//         e.addEventListener('click', close);
+//     }
+// }); 
+ 
+
 $.modal = function(options){
+
     const $modal = _createModel(options)
     const ANIMATION_SPEED = 200
     let closing = false
-    return {
-         open(){ 
+    let destoyed = false
+    const modal = {
+        open(){ 
+            if(destoyed){
+                return console.log(`Modal in destroyed`)
+            }
             !closing && $modal.classList.add('open')
         },
          close(){
@@ -55,47 +74,32 @@ $.modal = function(options){
                 $modal.classList.remove('hide')
                 closing = false
              },ANIMATION_SPEED)
-         },
-
-        title(string){
-            let a = document.getElementById('title_id')
-            if (a !== undefined){
-                a.innerText = string
-            }
-         },
-        closable(options){
-            options ? $modal.classList.add('close_hide') : $modal.classList.add('close_open')
-        },
-        content(string){
-            let a = document.getElementById('lorem')
-            if (a !== undefined){
-                a.innerText = string
-            }
-        },
-        width(string){
-            let a = document.getElementById('moda_window').style.width=string+'px'
-            return a
-        },
-
-         destroy(){
-            let e = document.querySelectorAll('.vmodal')
-            let a =(elms)=>[...elms].forEach(el=>el.remove())
-            console.log('Див удалён')
-            return a(e)  
-         },
-        //  ----закрытие модалки на крестик
-        close_plus(){
-
-        },
-        close_energy(){
-            
-              }
-               
-          
+         }
     }
 
+    const listener = event =>{
+        if (event.target.dataset.close){
+            modal.close()
+        }
+    }
+
+    $modal.addEventListener('click',listener)
+    // копирование из одного объекта в другой c добавлением
+    return Object.assign(modal,{
+        destroy(){
+            // удаляет модлаку в дом дереве 
+            $modal.parentNode.removeChild($modal)
+            // делаем ,чтобы убедится ,что не будет утечки памяти
+            $modal.removeEventListener('click',listener)
+            destoyed = true
+        },
+    setContent(html){
+        $modal.querySelector('[data-content]').innerHTML = html
+    }
+
+    })
 } 
 
-
-
+ 
+ 
  
