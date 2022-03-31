@@ -12,6 +12,7 @@ const modal  = $.modal({
             type: 'primary',
             handler(){
                 console.log('Primary btn clicked')
+            modal.close()
         }},
 
         {
@@ -19,7 +20,8 @@ const modal  = $.modal({
             type: 'danger',
             handler(){
                 console.log('Danger btn clicked')
-        }}
+            modal.close()
+        }},
     ]
 })
 
