@@ -43,7 +43,6 @@ function _createModel(options){
                         
                     </div>
                 </div>
-         
     `)
     // с помощью мтода appendChind(modal) помещаем в body
 
@@ -104,7 +103,7 @@ $.modal = function(options){
              },ANIMATION_SPEED)
          }
     }
-
+    // закрытие окна
     const listener = event =>{
         if (event.target.dataset.close){
             modal.close()
