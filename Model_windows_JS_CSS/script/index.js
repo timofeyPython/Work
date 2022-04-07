@@ -12,6 +12,7 @@ const toHTML = product => `
         <div class="card-body">
         <h5 class="card-title">${product.title}</h5>
         <a href="#" class="btn btn-primary" data-btn="price"  data-id=${product.id}>Просмотр цены</a>
+        <a href="#" class="btn bbtn btn-info" data-btn="price"  data-id=${product.id}>Изменить</a>
         <a href="#" class="btn btn-danger"  data-btn="delete" data-id=${product.id} >Удалить</a>
         </div>
     </div>
@@ -92,7 +93,6 @@ const priceModal  = $.modal({
          }).catch( ()=>{
              console.log('кансел')
          }) 
-         
     }
   
  })

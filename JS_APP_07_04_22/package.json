@@ -1,0 +1,27 @@
+{
+  "name": "podcast-app",
+  "version": "1.0.0",
+  "description": "Timofey Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timofeyPython/Work.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Timofey <tima.tepaev@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timofeyPython/Work/issues"
+  },
+  "homepage": "https://github.com/timofeyPython/Work#readme",
+  "devDependencies": {
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}
