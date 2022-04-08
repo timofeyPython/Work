@@ -1,5 +1,6 @@
 const path = require('path')//Работаем с путями (папки)
 const HtmlPlugin = require('html-webpack-plugin')//подлкючаем плагин
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry:'./src/app.js',
