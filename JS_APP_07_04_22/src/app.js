@@ -9,6 +9,9 @@ const submitBtn = document.querySelector('#submit')
 
 
 form.addEventListener('submit', submitFormHandler)
+input.addEventListener('input',()=>{
+    submitBtn.disabled = !isValid(input.value)
+})
 
 function submitFormHandler  (event) {
     event.preventDefault()
@@ -19,6 +22,12 @@ function submitFormHandler  (event) {
             text: input.value.trim(),
             date: new Date().toJSON()
         }
+        submitBtn.disable = true
         // Async request to server to save question
+        console.log('question',question)
+        //очищение лейбла от забитого слова
+        input.value = ''
+        input.className = ''
+        submitBtn.disable = false
     }
 }
