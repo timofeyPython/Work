@@ -2,14 +2,17 @@ import {isValid} from "./utils";
 import './style.css'
 import  {Question} from "./question"
 
-
 const form = document.getElementById('form')
 //когда селектор #
 const input = document.querySelector('#question-input')
 const submitBtn = document.querySelector('#submit')
+//получаем кнопочку
+const modalBtn  = document.getElementById('model-btn')
 
-
+//загрузка из local
+window.addEventListener('load',Question.renderList)
 form.addEventListener('submit', submitFormHandler)
+modalBtn.addEventListener('click',openModal)
 input.addEventListener('input',()=>{
     submitBtn.disabled = !isValid(input.value)
 })
@@ -34,4 +37,8 @@ function submitFormHandler  (event) {
         })
 
     }
+}
+
+function openModal(){
+    console.log('bot')
 }
