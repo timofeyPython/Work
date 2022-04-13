@@ -1,5 +1,6 @@
 import {isValid} from "./utils";
 import './style.css'
+import  {Question} from "./question"
 
 
 const form = document.getElementById('form')
@@ -24,10 +25,13 @@ function submitFormHandler  (event) {
         }
         submitBtn.disable = true
         // Async request to server to save question
-        console.log('question',question)
-        //очищение лейбла от забитого слова
-        input.value = ''
-        input.className = ''
-        submitBtn.disable = false
+        Question.create(question).then(()=>{
+            //очищение лейбла от забитого слова
+            input.value = ''
+            input.className = ''
+            submitBtn.disable = false
+
+        })
+
     }
 }
