@@ -1,6 +1,7 @@
-import {isValid} from "./utils";
-import './style.css'
+import {createModal, isValid} from "./utils"
 import  {Question} from "./question"
+import {authWithEmailAndPassword, getAuthForm} from "./auth"
+import './style.css'
 
 const form = document.getElementById('form')
 //когда селектор #
@@ -40,5 +41,16 @@ function submitFormHandler  (event) {
 }
 
 function openModal(){
-    console.log('bot')
+    createModal('Авторизация',getAuthForm())
+    document
+        .getElementById('auth-form')
+        .addEventListener('submit',authFormHandler,{once: true})//событие один раз выполняется
+}
+
+function authFormHandler(event){
+    event.preventDefault()
+
+    const email = event.target.querySelector('#email').value
+    const pass  = event.target.querySelector('#password').value
+    authWithEmailAndPassword(email,pass)
 }
