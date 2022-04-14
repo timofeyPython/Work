@@ -50,7 +50,24 @@ function openModal(){
 function authFormHandler(event){
     event.preventDefault()
 
+    const btn = event.target.querySelector('button')
     const email = event.target.querySelector('#email').value
     const pass  = event.target.querySelector('#password').value
+
+    btn.disable = true
     authWithEmailAndPassword(email,pass)
+        // .then(token=>{
+        //     return Question.fetch(token)
+        // })длинный вариант
+        .then(Question.fetch)
+        .then(renderModalAfterAuth)
+        .then(()=>btn.disabled = false)
+}
+
+function renderModalAfterAuth(content){
+    if (typeof content ==='string'){
+        createModal('ошибка!!',content)
+    }else {
+        createModal('Список вопросов',content)
+    }
 }

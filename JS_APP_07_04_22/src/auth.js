@@ -17,8 +17,8 @@ export function getAuthForm(){
 
 export function authWithEmailAndPassword(email, password){
     const apiKey = 'AIzaSyBN58a5ZstuKB6-1X2rwgQXBDh7T0VDGR0'
-    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${apiKey}`,{
-            method:"POST",
+    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,{
+            method:'POST',
             body:JSON.stringify({
             email,password,
                 returnSecureToken : true
@@ -28,5 +28,6 @@ export function authWithEmailAndPassword(email, password){
         }
     })
         .then(response=>response.json())
-        .then(data => console.log(data))
+        .then(data => data.idToken) //получаем по токену мыло и пароль
+
 }
