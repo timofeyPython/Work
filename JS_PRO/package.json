@@ -1,0 +1,18 @@
+{
+  "name": "js_pro",
+  "version": "1.0.0",
+  "descrition": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "keywords": [],
+  "author": "Timofey",
+  "private": true,
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
