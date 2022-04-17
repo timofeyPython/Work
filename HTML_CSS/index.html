@@ -9,14 +9,16 @@
     <div class="container">
     <div class="info">
         <img class="ava" src="IMG_0018.JPG" width="200px" alt="I HUMAN!!!!">
-        <h1>Тимофей Тепаев</h1>
-        <p>Я такой то чувак , тестирую сайтик и <strong>курю бамбук</strong></p>
-        <p><i>Второй параграф</i></p> <!--старый вариант <i>-->
+        <div class="info-text">
+            <h1>Тимофей Тепаев</h1>
+            <p>Я такой то чувак , тестирую сайтик и <strong>курю бамбук</strong></p>
+            <p><i>Второй параграф</i></p> <!--старый вариант <i>-->
         <h4>Мои ссылочки</h4>
             <a href="vk.com" target="_blank">Вк</a>|
             <a href="" target="_blank">Однокл</a>|
             <a href="" target="_blank">GitGub</a>|
             <a href="https://chrome.google.com/webstore/category/extensions?hl=ru" target="_blank">Link</a>
+        </div>
     </div>
         <div class="card bg-yellow">
         <h2>Мои увлечения</h2>
@@ -30,50 +32,68 @@
         <div class="card bg-green">
             <h2>Youtube Курсы</h2>
             <a href="index2.html">Список курсов</a>
+            <ul class="list">
+                <li><a href="https://www.youtube.com/watch?v=SpCUuyZZTp8&t=2055s&ab_channel=ВладиленМинин">Топ-7 фишек HTML/CSS верстки сайта которые ты должен знать</a></li>
+                <li><a>Топ-8 фишек HTML/CSS верстки сайта которые ты должен знать</a></li>
+                <li>Топ-9 фишек HTML/CSS верстки сайта которые ты должен знать</li>
+            </ul>
         </div>
-        <div class="card bg-red">
-                <h2>Опыт работы</h2>
-                <table class="table">
-                    <tr>
-                        <td>МТС</td>
-                        <td> 1м </td>
-                        <td>Спец</td>
-                    </tr>
-                    <tr>
-                        <td>Копатель</td>
-                        <td>дни</td>
-                        <td>Лопата</td>
-                    </tr>
-                    <tr>
-                        <td>ДНС</td>
-                        <td>6 месяцев</td>
-                        <td>Сборщик</td>
-                    </tr>
-                    <tr>
-                        <td>GoodJob</td>
-                        <td>2 years</td>
-                        <td>Specialist vedet</td>
-                    </tr>
-                </table>
-        </div>
-        <div class="card ">
-            <h2><i>Связь со мной</i></h2>
-            <form action="">
-                <!--связка label и input через for и id смотри пример-->
-                <label for="name">Ваше имя:</label>
-                <input type="text" id ="name" placeholder="Введите ваше имя">
-                <br>
-                <br>
-                <label for="email">EMAIL:</label>
-                <input type="email" id ="email" placeholder="Введите ваш mail:">
-                <br>
-                <br>
-                <label for="text">Ваше сообщение:</label>
-                <textarea id ="text" rows="2" cols=""></textarea>
-                <br>
-                <input type="submit" value="ОУ май">
-            </form>
+        <div class="contact">
+            <div class="card bg-red">
+                    <h2>Опыт работы</h2>
+                    <table class="table">
+                        <tr>
+                            <td>МТС</td>
+                            <td> 1м </td>
+                            <td>Спец</td>
+                        </tr>
+                        <tr>
+                            <td>Копатель</td>
+                            <td>дни</td>
+                            <td>Лопата</td>
+                        </tr>
+                        <tr>
+                            <td>ДНС</td>
+                            <td>6 месяцев</td>
+                            <td>Сборщик</td>
+                        </tr>
+                        <tr>
+                            <td>GoodJob</td>
+                            <td>2 years</td>
+                            <td>Specialist vedet</td>
+                        </tr>
+                    </table>
+            </div>
+            <div class="card ">
+                <h2>Связь со мной</h2>
+                <form action="/">
+                    <div class="row">
+                    <div class="form-group">
+                        <!--связка label и input через for и id смотри пример-->
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" id ="name" placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Ваш email:</label>
+                        <input type="email" id ="email" placeholder="Введите ваш mail:">
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text">Ваше сообщение:</label>
+                        <textarea id ="text" rows="2" cols=""></textarea>
+                    </div>
+                    <input class="button" type="submit" value="ОУ май">
+                </form>
+
+                <div class="position">
+                    <div class="box"></div>
+                </div>
+
+            </div>
         </div>
     </div>
+
 </body>
 </html>

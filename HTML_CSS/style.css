@@ -48,9 +48,24 @@ a:visited{
 }
 
 .info{
+    display: flex;
     padding: 20px;
 }
+/*использование штучек*/
+@media(max-width: 700px){
+    .info{
+        text-align: center;
+        display: block;
+    }
 
+}
+.info-text{
+    margin-left: 20px;
+}
+
+.info-text h1{
+    margin-bottom: 10px;
+}
 /*.social{*/
 /*    background-color: indianred;*/
 /*    padding: 1px 2px 3px 4px;*/
@@ -64,6 +79,7 @@ a:visited{
 .container{
     width: 750px;
     margin: auto;
+    padding-top: 30px;
 }
 
 /*.box-model > div{*/
@@ -99,12 +115,15 @@ a:visited{
 
 .list{
     padding-left: 30px;
+    list-style: none;
     /*list-style: none;*/
 }
 
 .list li{
     color: #86898f;
     margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px  solid #ccc;
     /*border-bottom: 1px solid grey;*/
 }
 
@@ -116,6 +135,84 @@ a:visited{
     padding-bottom: 10px;
 }
 /**/
-.table td:nth-child(1){
+.table td:nth-child(2), td:nth-child(3){
     color: #86898f;
 }
+
+/*.table tr:nth-child(even){*/
+/*    color: red;*/
+/*}*/
+
+.contact h2{
+    text-align: center;
+}
+
+.form-group label{
+    display: block;
+    size: 14px;
+    color: #86898f;
+}
+
+.form-group input, .form-group textarea{
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    /*color: #000;*/
+    color: red;
+    padding: 15px 0 10px;
+    /*при наведение на label нет рамки*/
+    outline: none;
+    /*наследование шрифта*/
+    font-family: inherit;
+}
+.row{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.row  > .form-group{
+    width: 50%;
+    margin-right:  20px;
+}
+
+.row > .form-group:first-child{
+    margin-right: 20px;
+}
+
+.button{
+    background: #111;
+    padding: 15px 20px;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.button:hover{
+    opacity: 0.9;
+}
+
+/*Position*/
+
+/*.position{*/
+/*    position: relative;*/
+/*    border: 4px solid black;*/
+/*    margin-top: 40px;*/
+/*    padding: 20px;*/
+/*    height: 300px;*/
+/*}*/
+
+/*.box{*/
+/*    !*postion позиционирование с помощью <absolute>*!*/
+/*    position: fixed;*/
+/*    bottom: 100px;*/
+/*    right: 29px;*/
+/*    !*letf: 20px;*!*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    background: lightcoral;*/
+/*    border-radius: 50%;*/
+/*}*/
