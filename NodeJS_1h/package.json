@@ -1,0 +1,41 @@
+{
+
+  "name": "nodejs_1h",
+
+  "version": "1.0.0",
+
+  "description": "",
+
+  "main": "index.js",
+
+  "scripts": {
+
+    "start": "node index.js",
+    "dev"  : "nodemon index.js"
+
+  },
+
+  "keywords": [],
+
+  "author": "Timofeo",
+
+  "license": "ISC",
+
+  "dependencies": {
+
+    "chalk": "^5.0.1",
+
+    "color": "^4.2.3",
+
+    "require": "^2.4.20"
+
+  },
+
+  "devDependencies": {
+
+    "nodemon": "^2.0.15"
+
+  }
+
+}
+
