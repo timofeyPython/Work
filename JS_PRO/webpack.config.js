@@ -6,86 +6,86 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = (env, argv) => {
-    const isProd = argv.mode === 'production'
-    const isDev = !isProd
+  const isProd = argv.mode === 'production'
+  const isDev = !isProd
 
-    console.log('isProd', isProd)
-    console.log('isDev', isDev)
+  console.log('isProd', isProd)
+  console.log('isDev', isDev)
 
-    const filename = (ext) =>
-        isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`
+  const filename = (ext) =>
+    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`
 
-    const plugins = () => {
-        const base = [
-            new HtmlWebpackPlugin({
-                template: './index.html'
-            }),
-            new CopyPlugin({
-                patterns: [
-                    {
-                        from: path.resolve(__dirname, 'src', 'favicon.ico'),
-                        to: path.resolve(__dirname, 'dist')
-                    },
-                ],
-            }),
-            new MiniCssExtractPlugin({
-                filename: filename('css')
-            }),
-            new CleanWebpackPlugin(),
-        ]
+  const plugins = () => {
+    const base = [
+      new HtmlWebpackPlugin({
+        template: './index.html'
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, 'src', 'favicon.ico'),
+            to: path.resolve(__dirname, 'dist')
+          },
+        ],
+      }),
+      new MiniCssExtractPlugin({
+        filename: filename('css')
+      }),
+      new CleanWebpackPlugin(),
+    ]
 
-        if (isDev) {
-            base.push(new ESLintPlugin())
-        }
-
-        return base
+    if (isDev) {
+      base.push(new ESLintPlugin())
     }
 
-    return {
-        target: 'web',
-        context: path.resolve(__dirname, 'src'),
-        entry: {
-            main: './index.js'
+    return base
+  }
+
+  return {
+    target: 'web',
+    context: path.resolve(__dirname, 'src'),
+    entry: {
+      main: './index.js'
+    },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: filename('js')
+    },
+    resolve: {
+      extensions: ['.js'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        '@core': path.resolve(__dirname, 'src', 'core'),
+      }
+    },
+    devServer: {
+      port: '3000',
+      open: true,
+      hot: true,
+    },
+    devtool: isDev ? 'source-map' : false,
+    plugins: plugins(),
+    module: {
+      rules: [
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'sass-loader',
+          ],
         },
-        output: {
-            path: path.resolve(__dirname, 'dist'),
-            filename: filename('js')
-        },
-        resolve: {
-            extensions: ['.js'],
-            alias: {
-                '@': path.resolve(__dirname, 'src'),
-                '@core': path.resolve(__dirname, 'src', 'core'),
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
             }
-        },
-        devServer: {
-            port: '3000',
-            open: true,
-            hot: true,
-        },
-        devtool: isDev ? 'source-map' : false,
-        plugins: plugins(),
-        module: {
-            rules: [
-                {
-                    test: /\.s[ac]ss$/i,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        'css-loader',
-                        'sass-loader',
-                    ],
-                },
-                {
-                    test: /\.m?js$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
-                    }
-                }
-            ],
+          }
         }
+      ],
     }
+  }
 }
