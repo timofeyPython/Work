@@ -12,7 +12,12 @@
   "private": true,
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
     "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
@@ -28,7 +33,9 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "core-js": "^3.9.0",
+    "normalize.css": "^8.0.1",
     "regenerator-runtime": "^0.13.9"
   }
 }
