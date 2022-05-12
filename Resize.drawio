@@ -1,1 +1,19 @@
-<mxfile host="app.diagrams.net" modified="2022-05-11T17:41:28.724Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.174 YaBrowser/22.1.3.916 Yowser/2.5 Safari/537.36" version="18.0.1" etag="lQdkbbrJHuxWDIkv_a7B" type="github"><diagram id="ryjXioRMDj3BuLpVBvX6">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-05-12T17:41:26.002Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.174 YaBrowser/22.1.3.916 Yowser/2.5 Safari/537.36" etag="bSd1b5Pola-WVkHd9xy_" version="18.0.3" type="github">
+  <diagram id="ryjXioRMDj3BuLpVBvX6" name="Страница 1">
+    <mxGraphModel dx="1497" dy="847" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="39fsd3qo5rw3t639SHX8-1" value="MOUSEDOWN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="39fsd3qo5rw3t639SHX8-2" value="MOUSEMOVE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="170" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="39fsd3qo5rw3t639SHX8-3" value="MOUSEUP" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="170" width="280" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
