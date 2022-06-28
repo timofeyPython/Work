@@ -8,6 +8,7 @@ export class DomListener {
         this.$root = $root
         this.listeners = listeners
     }
+
     initDomListener() {
         this.listeners.forEach((listener) => {
             const method = getMethodName(listener)
